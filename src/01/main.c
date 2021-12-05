@@ -3,7 +3,7 @@
 #include <io.h>
 #include <string_utils.h>
 
-void first_part(char* input_file_path) {
+void first_star(char* input_file_path) {
     FILE* f = fopen(input_file_path, "r");
     if (f == NULL) {
         perror("Couldn't open file.\n");
@@ -89,7 +89,7 @@ void add_measurement(sliding_window* window, long long measurement) {
     window->sum += measurement;
 }
 
-void second_part(char* input_file_path) {
+void second_star(char* input_file_path) {
     FILE* f = fopen(input_file_path, "r");
     if (f == NULL) {
         perror("Couldn't open file.\n");
@@ -122,13 +122,13 @@ void second_part(char* input_file_path) {
 }
 
 int main(int argc, char** argv) {
-    if (argc < 2) {
-        perror("No input file.\n");
-        exit(1);
+    char* input_file = "input.txt";
+    if (argc > 1) {
+        input_file = argv[1];
     }
 
-    first_part(argv[1]);
-    second_part(argv[1]);
+    first_star(input_file);
+    second_star(input_file);
 
     return 0;
 }
